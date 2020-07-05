@@ -1,0 +1,37 @@
+1. Problema:
+	El algoritmo RSA encripta mensajes que pueden resultar ser
+	de contenido delicado o privado en muchos casos, por lo 
+	cual, entre más robusto el proceso de encriptación es mas 
+	seguro el método mismo. Un emisor y un receptor son	
+	los participes del proceso de cifrado y descifrado del
+	mensaje en cuestion, con una llave publica y una privada.
+2. Desarrollo Matematico del Algoritmo:	
+	-Inicialmente se generan dos numeros primos p y q aleatorios
+	(entre mas cifras tenga cada numero primo, mas robusto
+	y seguro es el algoritmo). 
+	-Luego se identifica el cuerpo n sobre el cual se realizará el proceso, como p*q.
+	-Se define el indicador de Euler fi como (p-1)(q-1)
+	-Buscar numero e para la clave publica, tal que mcd[e,fi] = 1
+	-Encontrar un entero d mediante el algoritmo extendido de Euclides,
+	con la ecuacion ((y*fi)+1)/e, para y = 1,2,3...
+	-La clave publica será el par de numeros (e,n) 
+	-La clave privada será el par de numeros (d,n)
+	-La funcion de cifrado es: c = m^e mod n
+	-La funcion de descifrado es: m = c^d mod n
+3. Ejemplo del algoritmo:
+	Enunciado: Maria desea enviar su numero de identificacion a su amiga mediante un 
+	mensaje cifrado con el algoritmo RSA. Para ello decide fijar los numeros 7 y 11 como los primos necesarios 
+	para el algoritmo. Si su numero de identificacion es 73, ¿cual es la clave publica?, ¿cual es la clave privada?,
+	¿cual seria el mensaje cifrado?.
+	Solucion:
+	Numeros primos: p=7 y q=11
+	n = p*q = 77
+	fi = (p-1)(q-1) = 60
+	e = 7, ya que mcd[7, 60] = 1
+	d = 43, pues ((5*60)+1)/7 = 43
+	Clave publica: e=7 n=77
+	Clave privada: d=43 n=77
+	Mensaje cifrado: 17
+	
+
+	
